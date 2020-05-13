@@ -40,6 +40,7 @@ public final class C4Row implements C4SlotListener {
   public void contentsChanged(int oldContents, int newContents) {
     // case 1, moving from null to first player
     if (oldContents == C4Board.NULL_PLAYER_NUMBER & newContents == C4Board.FIRST_PLAYER_NUMBER) {
+      // System.out.println("case 1, moving from null to first player");
       // if we had no second player tokens, we now have a better score
       // for the first player, tell the stats.
       if (numPlayer2 == 0) {
@@ -97,6 +98,7 @@ public final class C4Row implements C4SlotListener {
 
     // case 2, moving from null to second player
     else if (oldContents == C4Board.NULL_PLAYER_NUMBER & newContents == C4Board.SECOND_PLAYER_NUMBER) {
+      // System.out.println("case 2, moving from null to second player");
       // if we had no first player tokens, we now have a better score
       // for the second player, tell the stats.
       if (numPlayer1 == 0) {
@@ -154,6 +156,7 @@ public final class C4Row implements C4SlotListener {
 
     // case 3, moving from player 1 to null
     else if (oldContents == C4Board.FIRST_PLAYER_NUMBER & newContents == C4Board.NULL_PLAYER_NUMBER) {
+      // System.out.println("case 3, moving from player 1 to null");
       // if no player 2 tokens, we have a worse score
       if (numPlayer2 == 0) {
         switch (numPlayer1) {
@@ -208,6 +211,7 @@ public final class C4Row implements C4SlotListener {
 
     // case 4, moving from player 2 to null
     else if (oldContents == C4Board.SECOND_PLAYER_NUMBER & newContents == C4Board.NULL_PLAYER_NUMBER) {
+      // System.out.println("case 4, moving from player 2 to null");
       // if no player 1 tokens, we have a worse score
       if (numPlayer1 == 0) {
         switch (numPlayer2) {
@@ -262,13 +266,17 @@ public final class C4Row implements C4SlotListener {
 
     if (newContents == C4Board.FIRST_PLAYER_NUMBER) {
       numPlayer1++;
+      //System.out.println("numPlayer1++");
     } else if (newContents == C4Board.SECOND_PLAYER_NUMBER) {
       numPlayer2++;
+      //System.out.println("numPlayer2++");
     } else if (newContents == C4Board.NULL_PLAYER_NUMBER) {
       if (oldContents == C4Board.FIRST_PLAYER_NUMBER) {
         numPlayer1--;
+        //System.out.println("numPlayer1--");
       } else if (oldContents == C4Board.SECOND_PLAYER_NUMBER) {
         numPlayer2--;
+        //System.out.println("numPlayer2--");
       }
     }
   }// end contentsChanged

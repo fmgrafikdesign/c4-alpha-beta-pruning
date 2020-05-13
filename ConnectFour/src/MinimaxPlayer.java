@@ -123,7 +123,7 @@ final class MinimaxCalculator {
 
         // no deep pruning
         int strength = expandMinNode(depth - 1, maxStrength);
-        if (strength > maxStrength) {
+        if (strength >= maxStrength) {
           maxStrength = strength;
           maxIndex = i;
         }

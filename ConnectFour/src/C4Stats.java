@@ -71,6 +71,7 @@ public final class C4Stats implements BoardStats {
   }
 
   public final void p1_1InARowInc() {
+    // System.out.println("p1_1InARowInc()");
     p1_1InARow++;
   }
 
@@ -104,6 +105,7 @@ public final class C4Stats implements BoardStats {
 
   public final void p1_1InARowDec() {
     p1_1InARow--;
+    // System.out.println("Dec()");
   }
 
 //------------------------------------------------
@@ -189,9 +191,9 @@ public final class C4Stats implements BoardStats {
 
   public String toString() {
     return "P1Score:" + p1_4InARow + " P2Score:" + p2_4InARow + "\n" + "p1Strength:" + firstPlayerStrength()
-        + " p2Strength:" + secondPlayerStrength() + "\n" + "p1_4:" + p1_4InARow + " p1_3:" + p1_3InARow + " p1_2:"
-        + p1_2InARow + " p1_1:" + p1_1InARow + "\n" + "p2_4:" + p2_4InARow + " p2_3:" + p2_3InARow + " p2_2:"
-        + p2_2InARow + " p2_1:" + p2_1InARow;
+        + " p2Strength:" + secondPlayerStrength() + "\n" +
+            "p1_4:" + p1_4InARow + " p1_3:" + p1_3InARow + " p1_2:" + p1_2InARow + " p1_1:" + p1_1InARow + "\n" +
+            "p2_4:" + p2_4InARow + " p2_3:" + p2_3InARow + " p2_2:" + p2_2InARow + " p2_1:" + p2_1InARow;
 
   }
 }
