@@ -57,10 +57,32 @@ public final class C4Board implements Board {
     firstPlayerMoves = new Move[NUMBER_OF_COLUMNS];
     secondPlayerMoves = new Move[NUMBER_OF_COLUMNS];
 
+    /* Left-to-right heuristic */
+    /*
     for (int i = 0; i < NUMBER_OF_COLUMNS; i++) {
       firstPlayerMoves[i] = new C4Move(firstPlayer, i);
       secondPlayerMoves[i] = new C4Move(secondPlayer, i);
     }
+     */
+
+    /* Center first heuristic */
+    firstPlayerMoves[0] = new C4Move(firstPlayer, 4);
+    firstPlayerMoves[1] = new C4Move(firstPlayer, 5);
+    firstPlayerMoves[2] = new C4Move(firstPlayer, 3);
+    firstPlayerMoves[3] = new C4Move(firstPlayer, 6);
+    firstPlayerMoves[4] = new C4Move(firstPlayer, 2);
+    firstPlayerMoves[5] = new C4Move(firstPlayer, 7);
+    firstPlayerMoves[6] = new C4Move(firstPlayer, 1);
+    firstPlayerMoves[7] = new C4Move(firstPlayer, 8);
+
+    firstPlayerMoves[0] = new C4Move(secondPlayer, 4);
+    firstPlayerMoves[1] = new C4Move(secondPlayer, 5);
+    firstPlayerMoves[2] = new C4Move(secondPlayer, 3);
+    firstPlayerMoves[3] = new C4Move(secondPlayer, 6);
+    firstPlayerMoves[4] = new C4Move(secondPlayer, 2);
+    firstPlayerMoves[5] = new C4Move(secondPlayer, 7);
+    firstPlayerMoves[6] = new C4Move(secondPlayer, 1);
+    firstPlayerMoves[7] = new C4Move(secondPlayer, 8);
 
   }// end constructor
 
