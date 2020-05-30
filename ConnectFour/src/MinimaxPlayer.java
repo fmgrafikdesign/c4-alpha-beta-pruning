@@ -120,6 +120,7 @@ final class MinimaxCalculator {
       if (board.move(moves[i])) {
         moveCount++;
 
+        // Prune
         int strength = expandMinNode(depth - 1, maxStrength);
         if (strength > maxStrength) {
           maxStrength = strength;
@@ -165,7 +166,8 @@ final class MinimaxCalculator {
         moveCount++;
         int strength = expandMinNode(depth - 1, maxStrength);
 
-        if (strength > parentMinimum) {
+        // Prune
+        if (strength >= parentMinimum) {
           board.undoLastMove();
           return strength;
         }
@@ -202,7 +204,8 @@ final class MinimaxCalculator {
         moveCount++;
         int strength = expandMaxNode(depth - 1, minStrength);
 
-        if (strength < parentMaximum) {
+        // Prune
+        if (strength <= parentMaximum) {
           board.undoLastMove();
           return strength;
         }
