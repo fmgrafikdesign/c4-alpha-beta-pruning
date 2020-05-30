@@ -220,7 +220,8 @@ public class GameMaster {
           notifyListenersMoveMade(move);
         }
 
-        System.out.println(board.getBoardStats().toString());
+        // Print board stats
+        // System.out.println(board.getBoardStats().toString());
 
       } // end while
 

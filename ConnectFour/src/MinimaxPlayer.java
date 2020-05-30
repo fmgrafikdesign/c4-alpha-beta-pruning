@@ -60,7 +60,6 @@ public class MinimaxPlayer extends DefaultPlayer {
    */
   public Move getMove(Board b) {
     MinimaxCalculator calc = new MinimaxCalculator(b, this, minPlayer);
-    // initial call with max-depth
     return calc.calculateMove(depth);
   }
 
@@ -87,7 +86,7 @@ final class MinimaxCalculator {
   private final int MAX_POSSIBLE_STRENGTH;
   private final int MIN_POSSIBLE_STRENGTH;
 
-//-------------------------------------------------------
+  //-------------------------------------------------------
   // constructors
   MinimaxCalculator(Board b, Player max, Player min) {
     board = b;
@@ -121,9 +120,8 @@ final class MinimaxCalculator {
       if (board.move(moves[i])) {
         moveCount++;
 
-        // no deep pruning
         int strength = expandMinNode(depth - 1, maxStrength);
-        if (strength >= maxStrength) {
+        if (strength > maxStrength) {
           maxStrength = strength;
           maxIndex = i;
         }
@@ -167,12 +165,10 @@ final class MinimaxCalculator {
         moveCount++;
         int strength = expandMinNode(depth - 1, maxStrength);
 
-        // Could this be a pruning?
-        if (strength >= parentMinimum) {
+        if (strength > parentMinimum) {
           board.undoLastMove();
           return strength;
         }
-
         if (strength > maxStrength) {
           maxStrength = strength;
         }
@@ -206,12 +202,10 @@ final class MinimaxCalculator {
         moveCount++;
         int strength = expandMaxNode(depth - 1, minStrength);
 
-        // Could this be a pruning?
-        if (strength <= parentMaximum) {
+        if (strength < parentMaximum) {
           board.undoLastMove();
           return strength;
         }
-
         if (strength < minStrength) {
           minStrength = strength;
         }
@@ -222,7 +216,6 @@ final class MinimaxCalculator {
 
     return minStrength;
 
-  }// end expandMinNode
-
+  }// end expandMaxNode
 
 }
